@@ -28,7 +28,7 @@ public:
 	void BubbleSortAscending(int arrayLength, int arrayElements[])
 	{
 		int iterations = 0;
-		int totalSwaps = 0; // Counter for total swaps
+		int totalSwaps = 0; 
 
 		for (int i = 0; i < arrayLength; i++)
 		{
@@ -38,15 +38,12 @@ public:
 			{
 				if (arrayElements[j] > arrayElements[j + 1])
 				{
-					// Swap algo for arrayElements[j] and arrayElements[j+1]
 					int temp = arrayElements[j];
 					arrayElements[j] = arrayElements[j + 1];
 					arrayElements[j + 1] = temp;
 
 					swapped = true;
-					totalSwaps++; // Increment the counter each time a swap occurs
-
-					// Print the array after a swap
+					totalSwaps++;
 					cout << "Swap " << totalSwaps << " in iteration " << iterations + 1 << ": ";
 					for (int k = 0; k < arrayLength; k++)
 					{
@@ -58,7 +55,6 @@ public:
 
 			iterations++;
 
-			// If no swaps occurred, the array is already sorted
 			if (!swapped)
 			{
 				cout << "Array is already sorted. Exiting early." << endl;
@@ -66,12 +62,12 @@ public:
 			}
 		}
 		cout << "Total iterations: " << iterations << endl;
-		cout << "Total swaps (steps): " << totalSwaps << endl; // Print the total number of swaps
+		cout << "Total swaps (steps): " << totalSwaps << endl; 
 	}
 	void BubbleSortDescending(int arrayLength, int arrayElements[])
 	{
 		int iterations = 0;
-		int totalSwaps = 0; // Counter for total swaps
+		int totalSwaps = 0; 
 
 		for (int i = 0; i < arrayLength; i++)
 		{
@@ -81,15 +77,13 @@ public:
 			{
 				if (arrayElements[j] < arrayElements[j + 1])
 				{
-					// Swap algo for arrayElements[j] and arrayElements[j+1]
 					int temp = arrayElements[j];
 					arrayElements[j] = arrayElements[j + 1];
 					arrayElements[j + 1] = temp;
 
 					swapped = true;
-					totalSwaps++; // Increment the counter each time a swap occurs
+					totalSwaps++;
 
-					// Print the array after a swap
 					cout << "Swap " << totalSwaps << " in iteration " << iterations + 1 << ": ";
 					for (int k = 0; k < arrayLength; k++)
 					{
@@ -101,7 +95,6 @@ public:
 
 			iterations++;
 
-			// If no swaps occurred, the array is already sorted
 			if (!swapped)
 			{
 				cout << "Array is already sorted. Exiting early." << endl;
@@ -109,14 +102,14 @@ public:
 			}
 		}
 		cout << "Total iterations: " << iterations << endl;
-		cout << "Total swaps (steps): " << totalSwaps << endl; // Print the total number of swaps
+		cout << "Total swaps (steps): " << totalSwaps << endl;
 	}
 
 	void SelectionSortAscending(int arrayLength, int arrayElements[])
 	{
 		int iteration = 0;
-		int totalSwaps = 0;		 // Counter for total swaps
-		int minIndexChanges = 0; // Counter for minimum index changes
+		int totalSwaps = 0;
+		int minIndexChanges = 0; 
 
 		for (int i = 0; i < arrayLength - 1; i++)
 		{
@@ -126,7 +119,7 @@ public:
 				if (arrayElements[j] < arrayElements[minPosition])
 				{
 					minPosition = j;
-					minIndexChanges++; // Increment the counter each time the minimum index changes
+					minIndexChanges++; 
 				}
 			}
 
@@ -136,9 +129,8 @@ public:
 				arrayElements[i] = arrayElements[minPosition];
 				arrayElements[minPosition] = temp;
 
-				totalSwaps++; // Increment the counter each time a swap occurs
+				totalSwaps++; 
 
-				// Print the array after a swap
 				cout << "Swap " << totalSwaps << " in iteration " << iteration + 1 << ": ";
 				for (int k = 0; k < arrayLength; k++)
 				{
@@ -150,14 +142,14 @@ public:
 			iteration++;
 		}
 		cout << "Total iterations: " << iteration << endl;
-		cout << "Total swaps (steps): " << totalSwaps << endl;				// Print the total number of swaps
-		cout << "Total minimum index changes: " << minIndexChanges << endl; // Print the total number of minimum index changes
+		cout << "Total swaps (steps): " << totalSwaps << endl;				
+		cout << "Total minimum index changes: " << minIndexChanges << endl; 
 	}
 	void SelectionSortDescending(int arrayLength, int arrayElements[])
 	{
 		int iteration = 0;
-		int totalSwaps = 0;		 // Counter for total swaps
-		int maxIndexChanges = 0; // Counter for maximum index changes
+		int totalSwaps = 0;		
+		int maxIndexChanges = 0; 
 
 		for (int i = 0; i < arrayLength - 1; i++)
 		{
@@ -167,7 +159,7 @@ public:
 				if (arrayElements[j] > arrayElements[maxPosition])
 				{
 					maxPosition = j;
-					maxIndexChanges++; // Increment the counter each time the maximum index changes
+					maxIndexChanges++;
 				}
 			}
 
@@ -177,9 +169,8 @@ public:
 				arrayElements[i] = arrayElements[maxPosition];
 				arrayElements[maxPosition] = temp;
 
-				totalSwaps++; // Increment the counter each time a swap occurs
+				totalSwaps++; 
 
-				// Print the array after a swap
 				cout << "Swap " << totalSwaps << " in iteration " << iteration + 1 << ": ";
 				for (int k = 0; k < arrayLength; k++)
 				{
@@ -191,58 +182,47 @@ public:
 			iteration++;
 		}
 		cout << "Total iterations: " << iteration << endl;
-		cout << "Total swaps (steps): " << totalSwaps << endl;				// Print the total number of swaps
-		cout << "Total maximum index changes: " << maxIndexChanges << endl; // Print the total number of maximum index changes
+		cout << "Total swaps (steps): " << totalSwaps << endl;				
+		cout << "Total maximum index changes: " << maxIndexChanges << endl; 
 	}
 
 	void heapify(int arr[], int n, int i, int& iteration, int& steps) {
-		int largest = i; // Initialize largest as root
-		int left = 2 * i + 1; // Left child
-		int right = 2 * i + 2; // Right child
+		int largest = i; 
+		int left = 2 * i + 1; 
+		int right = 2 * i + 2; 
 
-		// If left child is larger than root
 		if (left < n && arr[left] > arr[largest]) {
 			largest = left;
 		}
 
-		// If right child is larger than largest so far
 		if (right < n && arr[right] > arr[largest]) {
 			largest = right;
 		}
 
-		// If largest is not root
 		if (largest != i) {
 			swap(arr[i], arr[largest]);
 			steps++;
 			iteration++;
 
-			// Recursively heapify the affected sub-tree
 			heapify(arr, n, largest, iteration, steps);
 		}
 	}
 
-	// Main function to perform heap sort
 	void HeapSortDescending(int n, int arr[]) {
 		int iteration = 0;
 		int steps = 0;
 
-		// Build heap (rearrange array)
 		for (int i = n / 2 - 1; i >= 0; i--) {
 			heapify(arr, n, i, iteration, steps);
 		}
-
-		// One by one extract an element from heap
 		for (int i = n - 1; i > 0; i--) {
-			// Move current root to end
 			swap(arr[0], arr[i]);
 			steps++;
 			iteration++;
 
-			// call max heapify on the reduced heap
 			heapify(arr, i, 0, iteration, steps);
 		}
 
-		// Print the sorted array in descending order
 		cout << "Sorted array in descending order: ";
 		for (int i = n - 1; i >= 0; i--) {
 			cout << arr[i] << " ";
